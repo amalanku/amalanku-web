@@ -1,6 +1,6 @@
 ---
 // src/layouts/Documentation.astro
-import NavItem from "@/components/NavItem.astro";
+import NavItemComponent from "@/components/NavItem.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/sections/Footer.astro";
 import Header from "@/sections/Header.astro";
@@ -17,12 +17,6 @@ interface Props {
   description: string;
   pubDate: Date;
 }
-
-type NavItem = {
-  name: string;
-  slug: string;
-  children?: NavItem[];
-};
 
 const data = await getLandingData();
 const { title, description } = Astro.props;
@@ -180,10 +174,12 @@ function sortItems(items: any[]) {
                   >
                     Introduction
                   </a>
-                </li>
-                {
-                  navItems.map((item: NavItem) => (
-                    <NavItem item={item} currentPath={Astro.url.pathname} />
+                </li>{
+                  navItems.map((item) => (
+                    <NavItemComponent
+                      item={item}
+                      currentPath={Astro.url.pathname}
+                    />
                   ))
                 }
               </ul>

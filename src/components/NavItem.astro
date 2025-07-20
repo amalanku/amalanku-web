@@ -1,5 +1,6 @@
 ---
 // src/components/NavItem.astro
+import NavItemComponent from "@/components/NavItem.astro";
 const { item, currentPath } = Astro.props;
 
 function sortItems(items: any[]) {
@@ -43,7 +44,7 @@ const isExpanded = isActive || isChildActive;
 
         <ul class="ml-6 mt-2 border-l border-primary-200 pl-2 space-y-1">
           {sortItems(item.children).map((child) => (
-            <NavItem item={child} currentPath={currentPath} />
+            <NavItemComponent item={child} currentPath={currentPath} />
           ))}
         </ul>
       </details>

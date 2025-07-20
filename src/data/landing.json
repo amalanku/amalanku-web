@@ -30,7 +30,7 @@
       { "label": "Docs", "href": "/docs" },
       {
         "label": "Team",
-        "href": "https://github.com/amalanku/amalanku.github.io/blob/main/AUTHORS.md"
+        "href": "/team"
       },
       { "label": "Unduh", "href": "#download" },
       { "label": "Kontribusi", "href": "/kontribusi" }
@@ -251,7 +251,7 @@
       { "label": "Docs", "href": "/docs" },
       {
         "label": "Team",
-        "href": "https://github.com/amalanku/amalanku.github.io/blob/main/AUTHORS.md"
+        "href": "/team"
       },
       { "label": "Unduh", "href": "#download" },
       { "label": "Kontribusi", "href": "/kontribusi" }
