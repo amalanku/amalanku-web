@@ -41,7 +41,7 @@ const { Content } = await entry.render();
 <DocumentationLayout
   title={entry.data.title}
   description={entry.data.description ?? "No description available"}
-  pubDate={entry.data.pubDate}
+  pubDate={entry.data.pubDate ?? new Date("2020-12-12")}
 >
   <Content />
 </DocumentationLayout>
