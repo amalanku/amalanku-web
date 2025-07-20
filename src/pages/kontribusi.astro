@@ -1,0 +1,196 @@
+---
+// src/pages/join.astro
+import DocumentIcon from "@/icons/commons/DocumentIcon.astro";
+import RoadmapIcon from "@/icons/commons/RoadmapIcon.astro";
+import GithubIcon from "@/icons/socials/GithubIcon.astro";
+import WhatsappIcon from "@/icons/socials/WhatsappIcon.astro";
+import Layout from "@/layouts/Layout.astro";
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/Header.astro";
+import { getLandingData } from "@/services/data.service";
+
+const data = await getLandingData();
+
+const links = [
+  {
+    title: "GitHub Repository",
+    description: "Berkontribusi pada Github Data AmalanKu",
+    url: "https://github.com/amalanku/amalanku.github.io#-langkah-kontribusi",
+    icon: "github",
+    color: "from-gray-800 to-gray-700",
+    iconColor: "text-gray-800",
+    newPage: true,
+  },
+  {
+    title: "Whatsapp Community",
+    description: "Bergabunglah dengan diskusi Pengembang dan kontributor",
+    url: "https://chat.whatsapp.com/J0IbBIJwDL80qBrHycW72t",
+    icon: "whatsapp",
+    color: "from-green-600 to-green-500",
+    iconColor: "text-green-600",
+    newPage: true,
+  },
+  {
+    title: "Google Drive",
+    description:
+      "Kami juga membuka kesempatan, untuk berkontribusi lewat google drive",
+    url: "https://drive.google.com/drive/u/0/folders/1egdjh7f-iU268k_lojT7SH1CLVQSIMSb",
+    icon: "drive",
+    color: "from-blue-600 to-blue-500",
+    iconColor: "text-blue-600",
+    newPage: true,
+  },
+  {
+    title: "Product Roadmap",
+    description: "Lihat fitur yang kami rencanakan",
+    url: "https://github.com/orgs/amalanku/projects",
+    icon: "roadmap",
+    color: "from-purple-600 to-purple-500",
+    iconColor: "text-purple-600",
+    newPage: true,
+  },
+];
+
+const headerData = {
+  logo: "Kontribusi",
+  links: [
+    { label: "Beranda", href: "/" },
+    { label: "Docs", href: "/docs" },
+    { label: "Team", href: "/team" },
+    { label: "Unduh", href: "/#download" },
+    { label: "Showcase", href: "/showcase" },
+  ],
+};
+
+const metaData = {
+  title: "Kontribusi Amalanku - Aplikasi Amalan Harian Muslim",
+  description:
+    "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+  lang: "id",
+  charset: "UTF-8",
+  ldJson: {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name: "Amalanku",
+    description:
+      "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    url: "https://amalanku.vercel.app/",
+    logo: "./public/seo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "amalanku@hotmail.com",
+      contactType: "Contact Service",
+    },
+    sameAs: [
+      "https://x.com/AmalankuApp",
+      "https://www.instagram.com/amalanku.app/",
+      "https://www.linkedin.com/company/amalanku-project",
+    ],
+  },
+};
+---
+
+<Layout meta={metaData}>
+  <Header showBackButton={true} data={headerData} />
+
+  <main class="bg-gradient-to-b from-white to-gray-50">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 py-20 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Berkontribusi ke AmalanKu
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Bergabunglah dengan komunitas kami untuk membangun platform ibadah
+        digital yang lebih baik
+      </p>
+    </section>
+
+    <!-- Cards Grid -->
+    <section class="max-w-6xl mx-auto px-6 pb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          links.map((link) => (
+            <a
+              href={link.url}
+              target={link.newPage ? "_blank" : undefined}
+              class={`group bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
+            >
+              <div class="p-8">
+                <div
+                  class={`w-14 h-14 rounded-lg mb-6 flex items-center justify-center bg-gradient-to-br ${link.color}`}
+                >
+                  {link.icon === "github" && (
+                    <div class="text-white">
+                      <GithubIcon />
+                    </div>
+                  )}
+                  {link.icon === "whatsapp" && (
+                    <div class="w-6 h-6 text-white mx-auto transform scale-110">
+                      <WhatsappIcon class="w-full h-full" />
+                    </div>
+                  )}
+                  {link.icon === "drive" && (
+                    <div class="text-white">
+                      <DocumentIcon class="w-full h-full" />
+                    </div>
+                  )}
+                  {link.icon === "roadmap" && (
+                    <div class="text-white">
+                      <RoadmapIcon class="w-full h-full" />
+                    </div>
+                  )}
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
+                  {link.title}
+                </h3>
+                <p class="text-gray-600">{link.description}</p>
+                <div class="mt-4 text-primary-600 font-medium flex items-center group-hover:underline">
+                  {!link.newPage ? "Mulai sekarang" : "Buka Halaman"}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 ml-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="max-w-4xl mx-auto px-6 py-16 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">
+        Punya cara lain untuk berkontribusi?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8">
+        Hubungi kami melalui email di <i>amalanku@hotmail.com</i>
+      </p>
+      <a
+        href="mailto:amalanku@hotmail.com"
+        class="inline-block px-8 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors"
+      >
+        Kirim Email
+      </a>
+    </section>
+  </main>
+
+  <Footer data={data.footerData} />
+</Layout>
+
+<style>
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

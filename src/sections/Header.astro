@@ -2,21 +2,33 @@
 // src/components/Header.astro
 import Action from "@/components/Action.astro";
 import type { HeaderData } from "@/config/landing.interface";
+import BackIcon from "@/icons/commons/BackIcon.astro";
+const siteUrl = Astro.site;
 
 interface Props {
   data: HeaderData;
+  showBackButton?: boolean;
 }
 
-const { data } = Astro.props;
+const { data, showBackButton = false } = Astro.props;
 ---
 
-<header class="w-full fixed z-50 backdrop-blur-sm bg-white/60">
+<header class="w-full fixed top-0 z-50 backdrop-blur-sm bg-white/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Desktop Layout -->
     <div class="hidden md:flex items-center justify-between h-16 md:h-20">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <Action as="a" class="text-xl font-bold" href="#">{data.logo}</Action>
+      <!-- Logo & Optional Back Button -->
+      <div class="flex items-center space-x-2">
+        {
+          showBackButton && (
+            <a href="javascript:history.back()" title="Go Back">
+              <BackIcon height={26} />
+            </a>
+          )
+        }
+        <Action as="a" class="text-xl font-bold" href="#">
+          {data.logo}
+        </Action>
       </div>
 
       <!-- Desktop Nav -->
@@ -32,28 +44,38 @@ const { data } = Astro.props;
             </Action>
           ))
         }
-
-        <a href="https://sociabuzz.com/amalanku/tribe" target="_blank"
-          ><img
-            alt="Donate using Liberapay"
-            src="./donate.png"
-            class="rounded-md"
-          /></a
-        >
+        <a href="https://sociabuzz.com/amalanku/tribe" target="_blank">
+          <img
+            alt="Donate"
+            src=`${siteUrl}/donate.png`
+            class="rounded-md transition duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:opacity-90"
+          />
+        </a>
       </nav>
     </div>
 
     <!-- Mobile Layout -->
     <div class="md:hidden flex flex-col">
-      <!-- Centered Title -->
-      <div class="flex justify-center items-center h-16">
-        <Action as="a" class="text-xl font-bold text-center" href="#"
-          >{data.logo}</Action
-        >
+      <!-- Centered Title with Optional Back Button -->
+      <div class="relative h-12 flex items-center justify-center">
+        {
+          showBackButton && (
+            <a
+              href="javascript:history.back()"
+              class="absolute left-4 text-lg hover:opacity-80"
+              title="Go Back"
+            >
+              ←
+            </a>
+          )
+        }
+        <Action as="a" class="text-xl font-bold text-center" href="#">
+          {data.logo}
+        </Action>
       </div>
 
       <!-- Scrollable Nav Links -->
-      <div class="w-full overflow-x-auto py-2 hide-scrollbar">
+      <div class="w-full overflow-x-auto hide-scrollbar">
         <nav class="flex space-x-4 px-4 w-max mx-auto">
           {
             data.links.map((item) => (
@@ -66,13 +88,14 @@ const { data } = Astro.props;
               </Action>
             ))
           }
-          <a href="https://sociabuzz.com/amalanku/tribe" target="_blank"
-            ><img
-              alt="Donate using Liberapay"
-              src="./donate.png"
-              class="rounded-md"
-            /></a
-          >
+
+          <a href="https://sociabuzz.com/amalanku/tribe" target="_blank">
+            <img
+              alt="Donate"
+              src=`${siteUrl}/donate.png`
+              class="rounded-md transition duration-200 ease-in-out hover:scale-105 hover:shadow-lg hover:opacity-90"
+            />
+          </a>
         </nav>
       </div>
     </div>

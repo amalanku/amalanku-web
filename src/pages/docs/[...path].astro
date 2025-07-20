@@ -1,0 +1,47 @@
+---
+import DocumentationLayout from "@/layouts/DocumentationLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const docs = await getCollection("docs");
+  for (const doc of docs) {
+    console.log(doc.slug, doc.data.pubDate); // Check what pubDate is
+  }
+
+  return [
+    // Handle root /docs case
+    { params: { path: undefined }, props: { isRoot: true } },
+
+    // All documentation pages
+    ...docs.map((doc) => ({
+      params: { path: doc.slug },
+      props: { doc },
+    })),
+  ];
+}
+
+const { params, props } = Astro;
+
+// Handle root case
+if (props.isRoot) {
+  return Astro.redirect("/docs/introduction"); // Redirect to default page
+}
+
+const slug = params.path || "";
+const entry = await getEntry("docs", slug);
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+// Ensure MDX content is properly rendered
+const { Content } = await entry.render();
+---
+
+<DocumentationLayout
+  title={entry.data.title}
+  description={entry.data.description ?? "No description available"}
+  pubDate={entry.data.pubDate}
+>
+  <Content />
+</DocumentationLayout>

@@ -1,0 +1,253 @@
+---
+// src/layouts/Documentation.astro
+import NavItem from "@/components/NavItem.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Footer from "@/sections/Footer.astro";
+import Header from "@/sections/Header.astro";
+import { getLandingData } from "@/services/data.service";
+import {
+  getCollection,
+  type InferEntrySchema,
+  type Render,
+  type RenderedContent,
+} from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+}
+
+type NavItem = {
+  name: string;
+  slug: string;
+  children?: NavItem[];
+};
+
+const data = await getLandingData();
+const { title, description } = Astro.props;
+const ldJson = JSON.stringify(data.meta.ldJson);
+
+// Get all docs and generate navigation
+const allDocs = await getCollection("docs");
+// Filter out the "introduction" slug (adjust as needed)
+const filteredDocs = allDocs.filter((doc) => doc.slug !== "introduction");
+
+// sort by pubDate
+const sortedDocs = sortItems(filteredDocs);
+
+const navItems = generateNavigation(sortedDocs);
+
+const currentSlug = Astro.url.pathname.replace("/docs/", "").replace(/\/$/, "");
+const currentIndex = sortedDocs.findIndex((doc) => doc.slug === currentSlug);
+
+const previous = sortedDocs[currentIndex - 1];
+const next = sortedDocs[currentIndex + 1];
+
+export function toTitleCase(str: string) {
+  return str.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase()); // capitalize first letter of each word
+}
+
+export function generateNavigation(
+  docs: {
+    id: string;
+    render(): Render[".md"];
+    slug: string;
+    body: string;
+    collection: "docs";
+    data: InferEntrySchema<"docs">;
+    rendered?: RenderedContent;
+    filePath?: string;
+  }[],
+) {
+  const tree: any[] = [];
+
+  for (const doc of docs) {
+    const parts = doc.slug.split("/");
+    let current = tree;
+
+    for (let i = 0; i < parts.length; i++) {
+      const slugPath = parts.slice(0, i + 1).join("/");
+
+      let existing = current.find((item) => item.slug === slugPath);
+      if (!existing) {
+        const isLast = i === parts.length - 1;
+        existing = {
+          name: toTitleCase(parts[i]),
+          slug: slugPath,
+          children: isLast ? [] : [],
+        };
+        current.push(existing);
+      }
+
+      current = existing.children;
+    }
+  }
+
+  return tree;
+}
+
+function sortItems(items: any[]) {
+  return items.sort((a: any, b: any) => {
+    const dateA = new Date(a.data?.pubDate ?? 0).getTime();
+    const dateB = new Date(b.data?.pubDate ?? 0).getTime();
+
+    if (dateA !== dateB) return dateA - dateB;
+
+    const nameA = a.data?.title ?? a.name ?? "";
+    const nameB = b.data?.title ?? b.name ?? "";
+    return nameA.localeCompare(nameB);
+  });
+}
+---
+
+<!doctype html>
+<html lang={data.meta.lang ?? "en"}>
+  <head>
+    <title>{toTitleCase(title)}</title>
+    <meta
+      name="description"
+      content={description || "Documentation for AmalanKu"}
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={import.meta.env.SITE} />
+    <script type="application/ld+json" set:html={ldJson} />
+    <style is:global>
+      .docs-content h2 {
+        @apply text-2xl font-bold text-gray-900 mt-8 mb-4 pt-8 border-t border-gray-200;
+      }
+      .docs-content h3 {
+        @apply text-xl font-semibold text-gray-900 mt-6 mb-3;
+      }
+      .docs-content p {
+        @apply text-gray-700 mb-4 leading-relaxed;
+      }
+      .docs-content ul,
+      .docs-content ol {
+        @apply mb-4 pl-5;
+      }
+      .docs-content li {
+        @apply mb-2;
+      }
+      .docs-content pre {
+        @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+      }
+      .docs-content code {
+        @apply bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm;
+      }
+      .docs-content pre code {
+        @apply bg-transparent p-0;
+      }
+      .docs-content a {
+        @apply text-primary-600 hover:underline;
+      }
+      .nav-item {
+        @apply block px-2 py-1 hover:bg-gray-100 rounded;
+      }
+      .nav-item.active {
+        @apply bg-gray-100 font-medium;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 pt-16">
+    <Header
+      showBackButton={true}
+      data={{
+        logo: "Documentation",
+        links: [
+          { label: "Home", href: "/" },
+          { label: "Guides", href: "/docs/guides/overview" },
+        ],
+      }}
+    />
+
+    <div
+      class="flex flex-col md:flex-row max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+    >
+      <!-- Sidebar -->
+      <aside class="w-full md:w-64 flex-shrink-0 mb-8 md:mb-0 md:mr-8">
+        <div class="sticky top-20 space-y-6">
+          <!-- Auto-generated Navigation -->
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="font-bold text-lg mb-4">Documentation</h2>
+            <nav>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="/docs"
+                    class={`nav-item ${!Astro.url.pathname.split("/")[2] ? "active" : ""}`}
+                  >
+                    Introduction
+                  </a>
+                </li>
+                {
+                  navItems.map((item: NavItem) => (
+                    <NavItem item={item} currentPath={Astro.url.pathname} />
+                  ))
+                }
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Resources section -->
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="font-bold text-lg mb-4">Resources</h2>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="https://github.com/amalanku/amalanku.github.io"
+                  target="_blank"
+                  class="nav-item">GitHub</a
+                >
+              </li>
+              <li><a href="/showcase" class="nav-item">Showcase</a></li>
+              <li><a href="/kontribusi" class="nav-item">Contribution</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 min-w-0">
+        <div
+          class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 md:p-8"
+        >
+          <div class="docs-content">
+            <slot />
+          </div>
+          {
+            (previous || next) && (
+              <div class="mt-12 pt-6 border-t border-gray-200 flex justify-between text-sm">
+                {previous ? (
+                  <a
+                    href={`/docs/${previous.slug}`}
+                    class="text-primary-600 hover:underline"
+                  >
+                    {"<"} {previous.data.title}
+                  </a>
+                ) : (
+                  <span />
+                )}
+
+                {next ? (
+                  <a
+                    href={`/docs/${next.slug}`}
+                    class="text-primary-600 hover:underline"
+                  >
+                    {next.data.title} {">"}
+                  </a>
+                ) : (
+                  <span />
+                )}
+              </div>
+            )
+          }
+        </div>
+      </main>
+    </div>
+
+    <Footer data={data.footerData} />
+    <ScrollToTop />
+  </body>
+</html>

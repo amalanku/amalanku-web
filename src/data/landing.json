@@ -26,11 +26,14 @@
   "headerData": {
     "logo": "Amalanku 📿",
     "links": [
-      { "label": "Tentang", "href": "#about" },
-      { "label": "Fitur", "href": "#features" },
-      { "label": "Mengapa?", "href": "#why" },
+      { "label": "Showcase", "href": "/showcase" },
+      { "label": "Docs", "href": "/docs" },
+      {
+        "label": "Team",
+        "href": "https://github.com/amalanku/amalanku.github.io/blob/main/AUTHORS.md"
+      },
       { "label": "Unduh", "href": "#download" },
-      { "label": "Kontributor", "href": "https://amalanku.github.io/AUTHORS" }
+      { "label": "Kontribusi", "href": "/kontribusi" }
     ]
   },
   "heroData": {
@@ -244,13 +247,20 @@
     "logo": "Amalanku",
     "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
     "links": [
-      { "label": "Tentang", "href": "#about" },
-      { "label": "Fitur", "href": "#features" },
-      { "label": "Mengapa?", "href": "#why" },
+      { "label": "Showcase", "href": "/showcase" },
+      { "label": "Docs", "href": "/docs" },
+      {
+        "label": "Team",
+        "href": "https://github.com/amalanku/amalanku.github.io/blob/main/AUTHORS.md"
+      },
       { "label": "Unduh", "href": "#download" },
-      { "label": "Kontributor", "href": "https://amalanku.github.io/AUTHORS" }
+      { "label": "Kontribusi", "href": "/kontribusi" }
     ],
     "socials": [
+      {
+        "icon": "WhatsappIcon",
+        "href": "https://chat.whatsapp.com/J0IbBIJwDL80qBrHycW72t"
+      },
       {
         "icon": "InstagramIcon",
         "href": "https://www.instagram.com/amalanku.app/"

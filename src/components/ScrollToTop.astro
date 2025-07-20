@@ -1,0 +1,68 @@
+---
+// src/components/ScrollToTop.astro
+import Action from "@/components/Action.astro";
+---
+
+<div
+  id="scroll-to-top-container"
+  class="fixed bottom-6 right-6 z-50 opacity-0 invisible transition-all duration-300 ease-in-out"
+>
+  <Action
+    as="button"
+    type="button"
+    class="p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+    id="scroll-to-top-btn"
+    aria-label="Scroll to top"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+    </svg>
+  </Action>
+</div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollToTopBtn = document.getElementById("scroll-to-top-btn");
+    const container = document.getElementById("scroll-to-top-container");
+
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        container.classList.remove("opacity-0", "invisible");
+        container.classList.add("opacity-100", "visible");
+      } else {
+        container.classList.remove("opacity-100", "visible");
+        container.classList.add("opacity-0", "invisible");
+      }
+    });
+
+    // Smooth scroll to top
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  });
+</script>
+
+<style>
+  #scroll-to-top-container {
+    transform: translateY(20px);
+  }
+  #scroll-to-top-container.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+</style>

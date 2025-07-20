@@ -1,0 +1,67 @@
+---
+// src/components/NavItem.astro
+import NavItem from "./NavItem.astro";
+const { item, currentPath } = Astro.props;
+
+function sortItems(items: any[]) {
+  return items.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+const isActive = currentPath.includes(item.slug);
+const hasChildren = item.children?.length > 0;
+const isChildActive =
+  hasChildren &&
+  item.children.some((child: { slug: any }) =>
+    currentPath.includes(child.slug),
+  );
+const isExpanded = isActive || isChildActive;
+---
+
+<li class="mb-1">
+  {
+    hasChildren ? (
+      <details class="group" open={isExpanded}>
+        <summary class="flex items-center cursor-pointer px-3 py-2 rounded-md hover:bg-primary-100 transition-colors">
+          <svg
+            class="w-4 h-4 mr-2 text-gray-500 group-open:rotate-90 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+          <span
+            class={`${isActive ? "text-primary-600 font-medium" : "text-gray-700"}`}
+          >
+            {item.name}
+          </span>
+        </summary>
+
+        <ul class="ml-6 mt-2 border-l border-primary-200 pl-2 space-y-1">
+          {sortItems(item.children).map((child) => (
+            <NavItem item={child} currentPath={currentPath} />
+          ))}
+        </ul>
+      </details>
+    ) : (
+      <a
+        href={`/docs/${item.slug}`}
+        class={`
+        block px-3 py-2 rounded-md transition-colors ml-6
+        ${
+          isActive
+            ? "bg-primary-50 text-primary-600 font-medium"
+            : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+        }
+      `}
+      >
+        {item.name}
+      </a>
+    )
+  }
+</li>

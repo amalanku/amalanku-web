@@ -1,4 +1,5 @@
 ---
+import ScrollToTop from "@/components/ScrollToTop.astro";
 import Layout from "@/layouts/Layout.astro";
 import Banner from "@/sections/Banner.astro";
 import Download from "@/sections/Download.astro";
@@ -41,8 +42,10 @@ const data = await getLandingData();
       title="AmalanKu sedang dibangun bersama komunitas"
       description="Bergabunglah dengan para developer dan kontributor lainnya untuk mewujudkan aplikasi amalan Islam terbaik. Setiap kontribusi Anda sangat berharga!"
       cta="Gabung Sekarang"
-      url="https://github.com/amalanku/amalanku.github.io#-langkah-kontribusi"
+      url="/kontribusi"
+      newPage={false}
     />
     <Footer data={data.footerData} />
+    <ScrollToTop />
   </main>
 </Layout>
