@@ -1,0 +1,104 @@
+---
+import Action from "@/components/Action.astro";
+
+interface Props {
+  data: {
+    title: string;
+    subTitle: string;
+    primaryCta: string;
+    secondaryCta: string;
+    primaryUrl: string;
+    secondaryUrl: string;
+    highlightedTitle?: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<section
+  id="hero-section"
+  class="relative h-screen flex items-center justify-center overflow-hidden"
+>
+  <!-- Background Video -->
+  <video
+    class="absolute top-0 left-0 w-full h-full object-cover z-0"
+    src="/top-video.mp4"
+    autoplay
+    muted
+    loop
+    playsinline></video>
+
+  <!-- Overlay (optional dark filter) -->
+  <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+  <!-- Foreground Content -->
+  <div class="w-3/4 relative z-20 mt-10 md:w-1/2 text-center text-white px-4">
+    <h1 class="text-4xl font-semibold md:text-6xl">
+      {data.title}
+      <span class="text-primary"> {data.highlightedTitle} </span>
+    </h1>
+    <h2 class="mt-10 text-lg opacity-90 md:text-2xl">
+      {data.subTitle}
+    </h2>
+
+    <div class="flex flex-col md:flex-row justify-center gap-4 mt-10">
+      <Action
+        as="a"
+        type="button"
+        class="bg-white text-black hover:bg-primary-200"
+        href={data.primaryUrl}
+      >
+        {data.primaryCta}
+      </Action>
+      <Action
+        as="a"
+        class="bg-transparent text-white border border-white hover:bg-secondary-200 hover:text-black"
+        type="button"
+        href={data.secondaryUrl}
+        target="_blank"
+      >
+        {data.secondaryCta}
+      </Action>
+    </div>
+
+    <div class="flex justify-center">
+      <Action
+        as="a"
+        class="flex justify-center items-center animate-bounce border-2 border-transparent bg-primary text-white rounded-full w-14 h-14 mt-32 hover:bg-white hover:text-primary hover:border-primary transition"
+        href="#about"
+        title="arrow down icon"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"></path>
+        </svg>
+      </Action>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  #hero-section {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+</style>

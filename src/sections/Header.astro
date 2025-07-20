@@ -1,0 +1,90 @@
+---
+// src/components/Header.astro
+import Action from "@/components/Action.astro";
+import type { HeaderData } from "@/config/landing.interface";
+
+interface Props {
+  data: HeaderData;
+}
+
+const { data } = Astro.props;
+---
+
+<header class="w-full fixed z-50 backdrop-blur-sm bg-white/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Desktop Layout -->
+    <div class="hidden md:flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <Action as="a" class="text-xl font-bold" href="#">{data.logo}</Action>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="flex space-x-6 items-center">
+        {
+          data.links.map((item) => (
+            <Action
+              as="a"
+              href={item.href}
+              class="text-base font-medium hover:text-primary-600 dark:hover:text-primary-400"
+            >
+              {item.label}
+            </Action>
+          ))
+        }
+
+        <a href="https://sociabuzz.com/amalanku/tribe" target="_blank"
+          ><img
+            alt="Donate using Liberapay"
+            src="./donate.png"
+            class="rounded-md"
+          /></a
+        >
+      </nav>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="md:hidden flex flex-col">
+      <!-- Centered Title -->
+      <div class="flex justify-center items-center h-16">
+        <Action as="a" class="text-xl font-bold text-center" href="#"
+          >{data.logo}</Action
+        >
+      </div>
+
+      <!-- Scrollable Nav Links -->
+      <div class="w-full overflow-x-auto py-2 hide-scrollbar">
+        <nav class="flex space-x-4 px-4 w-max mx-auto">
+          {
+            data.links.map((item) => (
+              <Action
+                as="a"
+                href={item.href}
+                class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400 whitespace-nowrap"
+              >
+                {item.label}
+              </Action>
+            ))
+          }
+          <a href="https://sociabuzz.com/amalanku/tribe" target="_blank"
+            ><img
+              alt="Donate using Liberapay"
+              src="./donate.png"
+              class="rounded-md"
+            /></a
+          >
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</header>

@@ -1,0 +1,24 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import SideBySide from "@/components/SideBySide.astro";
+import type { FeatureData } from "@/config/landing.interface";
+
+interface Props {
+  data: FeatureData;
+}
+
+const { data } = Astro.props;
+---
+
+<section id="features" class="flex flex-col mt-20 mb-10 gap-y-28">
+  <SectionTitle>
+    {data.title}
+  </SectionTitle>
+  <div>
+    {
+      data.feature.map((features, idx) => (
+        <SideBySide data={features} reversed={(idx + 1) % 2 === 0} />
+      ))
+    }
+  </div>
+</section>

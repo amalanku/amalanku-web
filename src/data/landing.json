@@ -1,0 +1,265 @@
+{
+  "meta": {
+    "title": "Amalanku - Aplikasi Amalan Harian Muslim",
+    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "lang": "id",
+    "charset": "UTF-8",
+    "ldJson": {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Amalanku",
+      "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+      "url": "https://amalanku.vercel.app/",
+      "logo": "./public/seo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "amalanku@hotmail.com",
+        "contactType": "Contact Service"
+      },
+      "sameAs": [
+        "https://x.com/AmalankuApp",
+        "https://www.instagram.com/amalanku.app/",
+        "https://www.linkedin.com/company/amalanku-project"
+      ]
+    }
+  },
+  "headerData": {
+    "logo": "Amalanku 📿",
+    "links": [
+      { "label": "Tentang", "href": "#about" },
+      { "label": "Fitur", "href": "#features" },
+      { "label": "Mengapa?", "href": "#why" },
+      { "label": "Unduh", "href": "#download" },
+      { "label": "Kontributor", "href": "https://amalanku.github.io/AUTHORS" }
+    ]
+  },
+  "heroData": {
+    "title": "Tingkatkan Keistiqomahan Ibadah dengan:",
+    "subTitle": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "primaryCta": "Download Android",
+    "primaryUrl": "#download",
+    "secondaryCta": "Download iOS",
+    "secondaryUrl": "#download",
+    "highlightedTitle": "Amalanku"
+  },
+  "servicesData": {
+    "title": "Tujuan Utama - Aplikasi AmalanKu",
+    "services": [
+      {
+        "title": "Membantu Istiqomah",
+        "icon": "📿",
+        "description": "Menjaga konsistensi dalam menjalankan amalan harian Islam."
+      },
+      {
+        "title": "Penguat Iman",
+        "icon": "💖",
+        "description": "Memberikan pengingat dan motivasi untuk menjaga stabilitas keimanan."
+      },
+      {
+        "title": "Kemudahan Tracking",
+        "icon": "📊",
+        "description": "Memantau progress ibadah dengan mudah dan terorganisir."
+      },
+      {
+        "title": "Pembentukan Kebiasaan",
+        "icon": "🌱",
+        "description": "Membantu membangun rutinitas keagamaan yang kuat."
+      }
+    ]
+  },
+  "FeatureData": {
+    "title": "    Fitur Utama - Aplikasi AmalanKu",
+    "feature": [
+      {
+        "title": "📱 Tracking Amalan",
+        "description": "Pantau amalan harian Kamu dengan mudah dan tetap istiqomah dalam beribadah. Fitur tracking yang simpel namun powerful untuk menjaga konsistensi spiritual setiap hari.",
+        "img": "tracking.png",
+        "imageAlt": "Dashboard aplikasi tracking amalan Islam menampilkan progress salat, tilawah Quran, dzikir, dan ibadah harian lainnya dengan interface yang user-friendly",
+        "items": [
+          { "icon": "✅", "name": "Pelacakan Salat 5 Waktu" },
+          { "icon": "📖", "name": "Progress Tilawah Al-Qur'an" },
+          { "icon": "🤲", "name": "Counter Dzikir & Doa" },
+          { "icon": "🌙", "name": "Tracker Puasa Sunnah" },
+          { "icon": "📿", "name": "Wirid dan Amalan Harian" },
+          { "icon": "🕌", "name": "Catatan Ibadah Tambahan" }
+        ]
+      },
+      {
+        "title": "🔔 Sistem Pengingat",
+        "description": "Jangan sampai terlewat waktu ibadah dengan pengingat yang dapat disesuaikan. Notifikasi yang tepat waktu membantu Anda tetap konsisten tanpa mengganggu aktivitas sehari-hari.",
+        "img": "reminder.png",
+        "imageAlt": "Interface sistem pengingat aplikasi Amalanku menampilkan notifikasi waktu salat, dzikir, dan amalan harian dengan pengaturan yang dapat dikustomisasi",
+        "items": [
+          { "icon": "⏰", "name": "Reminder Waktu Salat" },
+          { "icon": "📅", "name": "Notifikasi Amalan Harian" },
+          { "icon": "🔔", "name": "Pengingat Dzikir" },
+          { "icon": "🌅", "name": "Reminder Tilawah" }
+        ]
+      },
+      {
+        "title": "📊 Monitoring & Analisis",
+        "description": "Lihat perkembangan spiritual Anda dalam bentuk visual yang mudah dipahami. Dapatkan insights mendalam tentang konsistensi ibadah dan raih pencapaian yang memotivasi.",
+        "img": "monitoring.png",
+        "imageAlt": "Dashboard analisis dan monitoring Amalanku menampilkan grafik progress amalan, sistem achievement, laporan spiritual, dan streak counter dengan visualisasi data yang menarik",
+        "items": [
+          { "icon": "📈", "name": "Grafik Progress Amalan" },
+          { "icon": "🏆", "name": "Sistem Achievement" },
+          { "icon": "📋", "name": "Laporan Harian/Mingguan/Bulanan" },
+          { "icon": "💎", "name": "Streak Counter Istiqomah" }
+        ]
+      },
+      {
+        "title": "🔒 Privacy & Kebebasan",
+        "description": "Data amalan Anda tetap privat dan tersimpan di device sendiri. Nikmati kebebasan beribadah tanpa khawatir privacy terganggu atau ketergantungan pada akun dan internet.",
+        "img": "privacy.png",
+        "imageAlt": "Ilustrasi fitur privacy dan keamanan aplikasi Amalanku dengan enkripsi data lokal, offline capability, dan zero tracking untuk menjaga privasi pengguna",
+        "items": [
+          { "icon": "🚫", "name": "Tidak perlu registrasi atau login" },
+          { "icon": "🛡️", "name": "Data pribadi tersimpan lokal di device" },
+          {
+            "icon": "🌐",
+            "name": "Mayoritas fitur dapat digunakan tanpa internet"
+          },
+          { "icon": "📡", "name": "Aplikasi hanya mengambil data dari server" },
+          { "icon": "🔐", "name": "Tidak ada tracking aktivitas user" }
+        ]
+      }
+    ]
+  },
+  "whyData": {
+    "title": "🌟 Mengapa Amalanku Penting?",
+    "items": [
+      {
+        "title": "🔥 Problem yang Diselesaikan",
+        "isLeft": true,
+        "description": "",
+        "services": [
+          {
+            "title": "Inkonsistensi Ibadah",
+            "icon": "CheckIcon",
+            "description": "Banyak muslim kesulitan menjaga konsistensi amalan harian."
+          },
+          {
+            "title": "Kurang Tracking",
+            "icon": "CheckIcon",
+            "description": "Sulit memantau progress spiritual tanpa sistem yang terorganisir."
+          },
+          {
+            "title": "Motivasi Menurun",
+            "icon": "CheckIcon",
+            "description": "Iman kadang naik turun tanpa pengingat yang konsisten."
+          },
+          {
+            "title": "Privacy Concerns",
+            "icon": "CheckIcon",
+            "description": "Kekhawatiran data pribadi ibadah disimpan di server pihak ketiga."
+          },
+          {
+            "title": "Ketergantungan Internet",
+            "icon": "CheckIcon",
+            "description": "Aplikasi yang membutuhkan koneksi internet terus-menerus."
+          },
+          {
+            "title": "Tidak Ada Panduan",
+            "icon": "CheckIcon",
+            "description": "Kurangnya aplikasi yang comprehensive untuk amalan Islam."
+          }
+        ]
+      },
+      {
+        "title": "💖 Manfaat untuk Ummat",
+        "isLeft": false,
+        "description": "",
+        "services": [
+          {
+            "title": "Meningkatkan Kualitas Ibadah",
+            "icon": "CheckIcon",
+            "description": "Tracking yang sistematis meningkatkan awareness spiritual."
+          },
+          {
+            "title": "Membangun Kebiasaan Positif",
+            "icon": "CheckIcon",
+            "description": "Habit formation untuk amalan yang istiqomah."
+          },
+          {
+            "title": "Motivasi Berkelanjutan",
+            "icon": "CheckIcon",
+            "description": "Reminder dan achievement system yang memotivasi."
+          },
+          {
+            "title": "Privacy Terjaga",
+            "icon": "CheckIcon",
+            "description": "Data pribadi ibadah tetap privat dan tersimpan lokal."
+          },
+          {
+            "title": "Akses Mudah",
+            "icon": "CheckIcon",
+            "description": "Interface yang user-friendly untuk semua kalangan umur."
+          },
+          {
+            "title": "Kebebasan Penuh",
+            "icon": "CheckIcon",
+            "description": "Tidak perlu khawatir dengan akun, password, atau kebijakan privasi."
+          }
+        ]
+      }
+    ]
+  },
+  "downloadData": {
+    "title": "Unduh AmalanKu",
+    "tiers": [
+      {
+        "title": "Android",
+        "description": "Download aplikasi Amalanku untuk Android dan mulai tracking amalan harian Anda. Kompatibel dengan semua device Android modern.",
+        "price": {
+          "amount": "Gratis"
+        },
+        "features": ["Versi: 1.0.0"],
+        "cta": "Download",
+        "url": "#note-banner"
+      },
+      {
+        "title": "Apple - iOS",
+        "description": "Dapatkan Amalanku di App Store untuk iPhone dan iPad. Interface yang dioptimasi khusus untuk ecosystem Apple.",
+        "price": {
+          "amount": "Gratis"
+        },
+        "features": ["Versi: 1.0.0"],
+        "cta": "Download",
+        "url": "#note-banner"
+      },
+      {
+        "title": "Desktop",
+        "description": "Saat ini kami fokus pada pengembangan mobile apps. Untuk versi desktop kami sedang pertimbangkannya.",
+        "price": {
+          "amount": "Rencana"
+        },
+        "features": ["Future Plan"],
+        "cta": "Coming Later",
+        "url": "#note-banner"
+      }
+    ]
+  },
+  "footerData": {
+    "logo": "Amalanku",
+    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "links": [
+      { "label": "Tentang", "href": "#about" },
+      { "label": "Fitur", "href": "#features" },
+      { "label": "Mengapa?", "href": "#why" },
+      { "label": "Unduh", "href": "#download" },
+      { "label": "Kontributor", "href": "https://amalanku.github.io/AUTHORS" }
+    ],
+    "socials": [
+      {
+        "icon": "InstagramIcon",
+        "href": "https://www.instagram.com/amalanku.app/"
+      },
+      { "icon": "TwitterIcon", "href": "https://x.com/AmalankuApp" },
+      {
+        "icon": "GithubIcon",
+        "href": "https://github.com/amalanku/amalanku.github.io"
+      }
+    ]
+  }
+}
