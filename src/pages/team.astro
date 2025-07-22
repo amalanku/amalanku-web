@@ -55,14 +55,42 @@ const headerData = {
   links: [
     { label: "Beranda", href: "/" },
     { label: "Docs", href: "/docs" },
-    { label: "Showcase", href: "/Showcase" },
+    { label: "Showcase", href: "/showcase" },
     { label: "Unduh", href: "/#download" },
     { label: "Kontribusi", href: "/kontribusi" },
   ],
 };
+
+//SECTION - SEO TAG
+const metaData = {
+  title: "Team",
+  description:
+    "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+  lang: "id",
+  charset: "UTF-8",
+  ldJson: {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name: "Amalanku",
+    description:
+      "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    url: "https://amalanku.com/",
+    logo: "/seo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "amalanku@hotmail.com",
+      contactType: "Contact Service",
+    },
+    sameAs: [
+      "https://x.com/AmalankuApp",
+      "https://www.instagram.com/amalanku.app/",
+      "https://www.linkedin.com/company/amalanku-project",
+    ],
+  },
+};
 ---
 
-<Layout meta={data.meta}>
+<Layout meta={metaData}>
   <Header showBackButton={true} data={headerData} />
 
   <main class="bg-white pt-20">

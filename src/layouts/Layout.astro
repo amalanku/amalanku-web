@@ -2,6 +2,7 @@
 import Background from "@/components/Background.astro";
 import type { Meta } from "@/config/landing.interface";
 import "@fontsource-variable/rubik";
+import AstroSeo from "node_modules/@astrolib/seo/src/AstroSeo.astro";
 
 interface Props {
   meta: Meta;
@@ -19,30 +20,62 @@ const ldJson = JSON.stringify(meta.ldJson);
 >
   <head>
     <meta charset={meta.charset ?? "UTF-8"} />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={import.meta.env.SITE} />
-    <script type="application/ld+json" set:html={ldJson} />
+    <script is:inline type="application/ld+json" set:html={ldJson} />
+
+    <AstroSeo
+      title={meta.title}
+      titleTemplate="%s | AmalanKu"
+      description={meta.description}
+      canonical="https://amalanku.com/"
+      noindex={false}
+      nofollow={false}
+      robotsProps={{
+        maxSnippet: -1,
+        maxImagePreview: "large",
+        maxVideoPreview: -1,
+      }}
+      additionalLinkTags={[{ rel: "icon", href: "/favicon.ico" }]}
+      openGraph={{
+        url: "https://amalanku.com/",
+        title: meta.title,
+        description: meta.description,
+        locale: "id_ID",
+        images: [
+          {
+            url: meta.ldJson.logo,
+            width: 800,
+            height: 600,
+            alt: "AmalanKu",
+            type: "image/png",
+          },
+        ],
+        site_name: "AmalanKu",
+      }}
+      twitter={{
+        handle: "@AmalankuApp",
+        site: "@AmalankuApp",
+        cardType: "summary_large_image",
+      }}
+    />
   </head>
   <body class="bg-white">
     <Background />
     <slot />
+    <style is:global>
+      body {
+        font-family:
+          "Rubik Variable",
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  body {
-    font-family:
-      "Rubik Variable",
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>

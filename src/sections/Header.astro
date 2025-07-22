@@ -13,7 +13,9 @@ interface Props {
 const { data, showBackButton = false } = Astro.props;
 ---
 
-<header class="w-full fixed top-0 z-50 backdrop-blur-sm bg-white/60">
+<header
+  class="w-full top-0 z-50 backdrop-blur-sm bg-white/60 fixed md:fixed md:top-0 md:z-50 sm:relative sm:top-auto sm:z-auto"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Desktop Layout -->
     <div class="hidden md:flex items-center justify-between h-16 md:h-20">

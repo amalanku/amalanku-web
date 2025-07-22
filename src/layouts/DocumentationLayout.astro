@@ -11,6 +11,7 @@ import {
   type Render,
   type RenderedContent,
 } from "astro:content";
+import AstroSeo from "node_modules/@astrolib/seo/src/AstroSeo.astro";
 
 interface Props {
   title: string;
@@ -98,15 +99,44 @@ function sortItems(items: any[]) {
 <!doctype html>
 <html lang={data.meta.lang ?? "en"}>
   <head>
-    <title>{toTitleCase(title)}</title>
-    <meta
-      name="description"
-      content={description || "Documentation for AmalanKu"}
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={import.meta.env.SITE} />
-    <script type="application/ld+json" set:html={ldJson} />
+    <script is:inline type="application/ld+json" set:html={ldJson} />
+    <AstroSeo
+      title={toTitleCase(title)}
+      titleTemplate="%s | AmalanKu"
+      description={description || "Dokumentasi AmalanKu"}
+      canonical="https://amalanku.com/"
+      noindex={false}
+      nofollow={false}
+      robotsProps={{
+        maxSnippet: -1,
+        maxImagePreview: "large",
+        maxVideoPreview: -1,
+      }}
+      additionalLinkTags={[{ rel: "icon", href: "/favicon.ico" }]}
+      openGraph={{
+        url: "https://amalanku.com/",
+        title: toTitleCase(title),
+        description: description,
+        locale: "id_ID",
+        images: [
+          {
+            url: "/seo.png",
+            width: 800,
+            height: 600,
+            alt: "AmalanKu",
+            type: "image/png",
+          },
+        ],
+        site_name: "AmalanKu",
+      }}
+      twitter={{
+        handle: "@AmalankuApp",
+        site: "@AmalankuApp",
+        cardType: "summary_large_image",
+      }}
+    />
     <style is:global>
       .docs-content h2 {
         @apply text-2xl font-bold text-gray-900 mt-8 mb-4 pt-8 border-t border-gray-200;

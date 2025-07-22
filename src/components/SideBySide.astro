@@ -14,27 +14,37 @@ const { data, reversed } = Astro.props;
 <article
   class=`flex justify-between gap-x-32 flex-col mb-20 md:mb-40 ${reversed ? "md:flex-row-reverse" : "md:flex-row"}`
 >
-  <div class="md:w-3/4 flex items-center justify-center">
+  <div
+    class="md:w-3/4 flex items-center justify-center overflow-hidden rounded-lg"
+  >
     <img
       src={ASSET_PREFIX + data.img}
       alt={data.imageAlt}
-      class="h-auto max-h-full transition-transform duration-300 hover:scale-125 cursor-zoom-in"
+      class="h-auto max-h-full transition-all duration-500 ease-out hover:scale-105 cursor-pointer object-cover"
     />
   </div>
 
   <div class="flex flex-col md:w-5/6 gap-y-8">
-    <h3
-      class="text-xl md:text-4xl transition-transform duration-300 ease-in-out hover:scale-[1.15] cursor-pointer"
+    <h2
+      class="font-medium text-xl md:text-4xl text- transition-colors duration-300 hover:text-primary-500/90"
     >
       {data.title}
-    </h3>
-    <p class="md:text-xl">{data.description}</p>
+    </h2>
+    <p
+      class="md:text-xl opacity-90 hover:opacity-100 transition-opacity duration-300"
+    >
+      {data.description}
+    </p>
     <ul class="flex flex-col gap-y-8">
       {
         data.items.map((item) => (
-          <li class="flex flex-row items-center gap-x-4 md:text-2xl transition-transform duration-300 ease-in-out hover:scale-[1.15] cursor-pointer">
-            <IconWrapper>{item.icon}</IconWrapper>
-            {item.name}
+          <li class="group flex flex-row items-center gap-x-4 md:text-2xl">
+            <div class="transition-all duration-300 group-hover:translate-x-2">
+              <IconWrapper>{item.icon}</IconWrapper>
+            </div>
+            <span class="border-b-2 border-transparent group-hover:border-primary-700 transition-all duration-300">
+              {item.name}
+            </span>
           </li>
         ))
       }

@@ -9,8 +9,8 @@
       "@type": "Organization",
       "name": "Amalanku",
       "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
-      "url": "https://amalanku.vercel.app/",
-      "logo": "./public/seo.png",
+      "url": "https://amalanku.com/",
+      "logo": "/seo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "amalanku@hotmail.com",

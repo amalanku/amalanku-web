@@ -11,16 +11,15 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<section id="why" class=" mt-20  mb-36 w-full">
+<section id="why" class="mt-20 mb-36 w-full">
   <!-- Main Section Title -->
-   <section
-        class={`gap-10 lg:gap-16 mb-24 w-full max-w-7xl mx-auto px-4 sm:px-6`}>
-  <SectionTitle >
-    {data.title}
-  </SectionTitle>
+  <section class="gap-10 lg:gap-16 mb-24 w-full max-w-7xl mx-auto px-4 sm:px-6">
+    <SectionTitle>
+      {data.title}
+    </SectionTitle>
   </section>
 
-  {data.items.map((item, idx) => {
+  {data.items.map((item) => {
     const isLeft = item.isLeft;
 
     return (
@@ -41,8 +40,8 @@ const { data } = Astro.props;
         <!-- Services Grid -->
         <div class="w-full md:w-3/5 grid md:grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {item.services.map((service) => (
-            <article class="flex gap-5 p-2 transition-transform duration-300 ease-in-out hover:scale-[1.15] cursor-pointer"> 
-              <div class="flex-shrink-0 mt-1">
+            <article class="group flex gap-5 p-4 rounded-lg   transition-all duration-300"> 
+              <div class="flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110">
                 <IconWrapper class="p-2.5 bg-primary-100/50 dark:bg-primary-900/20 rounded-lg">
                   <Icon
                     icon={service.icon as IconType}
@@ -50,11 +49,11 @@ const { data } = Astro.props;
                   />
                 </IconWrapper>
               </div>
-              <section class="flex-1 ">
-                <h3 class="text-xl lg:text-2xl font-semibold mb-2 ">
+              <section class="flex-1">
+                <h3 class="text-xl lg:text-2xl font-semibold mb-2 transition-colors duration-300 group-hover:text-primary-600">
                   {service.title}
                 </h3>
-                <p class="text-pretty leading-relaxed text-sm lg:text-base">
+                <p class="text-pretty leading-relaxed text-sm lg:text-base opacity-90 group-hover:opacity-100 transition-opacity duration-300">
                   {service.description}
                 </p>
               </section>

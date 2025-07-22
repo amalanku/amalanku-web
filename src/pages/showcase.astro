@@ -19,10 +19,38 @@ const headerData = {
   ],
 };
 
+//SECTION - SEO TAG
+const metaData = {
+  title: "Showcase",
+  description:
+    "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+  lang: "id",
+  charset: "UTF-8",
+  ldJson: {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    name: "Amalanku",
+    description:
+      "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    url: "https://amalanku.com/",
+    logo: "/seo.png",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "amalanku@hotmail.com",
+      contactType: "Contact Service",
+    },
+    sameAs: [
+      "https://x.com/AmalankuApp",
+      "https://www.instagram.com/amalanku.app/",
+      "https://www.linkedin.com/company/amalanku-project",
+    ],
+  },
+};
+
 const youtubeVideoId = "SAMPLE"; //FIXME -  Replace with actual YouTube video ID
 ---
 
-<Layout meta={data.meta}>
+<Layout meta={metaData}>
   <Header showBackButton={true} data={headerData} />
 
   <main class="bg-white pt-20">
@@ -40,10 +68,9 @@ const youtubeVideoId = "SAMPLE"; //FIXME -  Replace with actual YouTube video ID
     <section class="max-w-4xl mx-auto px-6 pb-16">
       <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl">
         <iframe
-          class="w-full h-full"
+          class="w-full h-full border-0"
           src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=0&rel=0`}
           title="Demonstrasi AmalanKu"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
