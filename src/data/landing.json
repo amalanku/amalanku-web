@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Amalanku - Aplikasi Amalan Harian Muslim",
-    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
     "lang": "id",
     "charset": "UTF-8",
     "ldJson": {
       "@context": "http://schema.org",
       "@type": "Organization",
       "name": "Amalanku",
-      "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+      "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
       "url": "https://amalanku.com/",
       "logo": "/seo.png",
       "contactPoint": {
@@ -38,7 +38,7 @@
   },
   "heroData": {
     "title": "Tingkatkan Keistiqomahan Ibadah dengan:",
-    "subTitle": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "subTitle": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
     "primaryCta": "Download Android",
     "primaryUrl": "#download",
     "secondaryCta": "Download iOS",
@@ -245,7 +245,7 @@
   },
   "footerData": {
     "logo": "Amalanku",
-    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam melacak dan mengelola amalan harian kamu.",
+    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
     "links": [
       { "label": "Showcase", "href": "/showcase" },
       { "label": "Docs", "href": "/docs" },
@@ -262,6 +262,10 @@
         "href": "https://chat.whatsapp.com/J0IbBIJwDL80qBrHycW72t"
       },
       {
+        "icon": "FacebookIcon",
+        "href": "https://facebook.com/profile.php?id=61578649081392"
+      },
+      {
         "icon": "InstagramIcon",
         "href": "https://www.instagram.com/amalanku.app/"
       },
@@ -269,6 +273,10 @@
       {
         "icon": "GithubIcon",
         "href": "https://github.com/amalanku/amalanku.github.io"
+      },
+      {
+        "icon": "YoutubeIcon",
+        "href": "https://youtube.com/@amalanku-project"
       }
     ]
   }

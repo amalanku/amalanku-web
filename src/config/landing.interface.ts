@@ -152,4 +152,5 @@ export type Icon =
   | "VueIcon"
   | "VercelIcon"
   | "NetlifyIcon"
+  | "YoutubeIcon"
   | "WhatsappIcon";
