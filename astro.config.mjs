@@ -6,7 +6,7 @@ import { defineConfig } from "astro/config";
 
 const site = import.meta.env.DEV
   ? "http://localhost:4321"
-  : "https://amalanku.com";
+  : "https://www.amalanku.com";
 
 export default defineConfig({
   site,
