@@ -21,7 +21,12 @@ const ldJson = JSON.stringify(meta.ldJson);
   <head>
     <meta charset={meta.charset ?? "UTF-8"} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Modern browsers (best fallback) -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Apple devices -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <script is:inline type="application/ld+json" set:html={ldJson} />
 
     <AstroSeo
