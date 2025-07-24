@@ -76,7 +76,7 @@
       {
         "title": "📱 Tracking Amalan",
         "description": "Pantau amalan harian Kamu dengan mudah dan tetap istiqomah dalam beribadah. Fitur tracking yang simpel namun powerful untuk menjaga konsistensi spiritual setiap hari.",
-        "img": "tracking.png",
+        "img": "tracking.webp",
         "imageAlt": "Dashboard aplikasi tracking amalan Islam menampilkan progress salat, tilawah Quran, dzikir, dan ibadah harian lainnya dengan interface yang user-friendly",
         "items": [
           { "icon": "✅", "name": "Pelacakan Salat 5 Waktu" },
@@ -90,7 +90,7 @@
       {
         "title": "🔔 Sistem Pengingat",
         "description": "Jangan sampai terlewat waktu ibadah dengan pengingat yang dapat disesuaikan. Notifikasi yang tepat waktu membantu Anda tetap konsisten tanpa mengganggu aktivitas sehari-hari.",
-        "img": "reminder.png",
+        "img": "reminder.webp",
         "imageAlt": "Interface sistem pengingat aplikasi Amalanku menampilkan notifikasi waktu salat, dzikir, dan amalan harian dengan pengaturan yang dapat dikustomisasi",
         "items": [
           { "icon": "⏰", "name": "Reminder Waktu Salat" },
@@ -102,7 +102,7 @@
       {
         "title": "📊 Monitoring & Analisis",
         "description": "Lihat perkembangan spiritual Anda dalam bentuk visual yang mudah dipahami. Dapatkan insights mendalam tentang konsistensi ibadah dan raih pencapaian yang memotivasi.",
-        "img": "monitoring.png",
+        "img": "monitoring.webp",
         "imageAlt": "Dashboard analisis dan monitoring Amalanku menampilkan grafik progress amalan, sistem achievement, laporan spiritual, dan streak counter dengan visualisasi data yang menarik",
         "items": [
           { "icon": "📈", "name": "Grafik Progress Amalan" },
@@ -114,7 +114,7 @@
       {
         "title": "🔒 Privacy & Kebebasan",
         "description": "Data amalan Anda tetap privat dan tersimpan di device sendiri. Nikmati kebebasan beribadah tanpa khawatir privacy terganggu atau ketergantungan pada akun dan internet.",
-        "img": "privacy.png",
+        "img": "privacy.webp",
         "imageAlt": "Ilustrasi fitur privacy dan keamanan aplikasi Amalanku dengan enkripsi data lokal, offline capability, dan zero tracking untuk menjaga privasi pengguna",
         "items": [
           { "icon": "🚫", "name": "Tidak perlu registrasi atau login" },
