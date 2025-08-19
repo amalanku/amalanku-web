@@ -59,9 +59,14 @@ const { data } = Astro.props;
           <footer class="flex justify-center mt-auto px-6 pb-6">
             <Action
               as="a"
-              class="bg-primary-700 text-white w-full group-hover:bg-primary-400 transition-colors duration-400"
-              type="button"
               href={tier.url}
+              target={tier.url?.startsWith("#") ? "_self" : "_blank"}
+              class={`w-full transition-colors duration-400 ${
+                tier.url?.startsWith("#")
+                  ? "bg-teal-600 text-white hover:bg-teal-800"
+                  : "bg-primary-600 text-white hover:bg-primary-800"
+              }`}
+              type="button"
             >
               {tier.cta}
             </Action>

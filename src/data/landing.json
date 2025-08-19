@@ -212,33 +212,34 @@
     "title": "Unduh AmalanKu",
     "tiers": [
       {
-        "title": "Android",
-        "description": "Download aplikasi Amalanku untuk Android dan mulai tracking amalan harian Anda. Kompatibel dengan semua device Android modern.",
+        "title": "🤖 Android",
+        "description": "Download aplikasi Amalanku untuk Android di Google Play Store dan mulai tracking amalan harian Anda (minimal Android 6.0 / SDK 23).",
         "price": {
-          "amount": "Gratis"
+          "amount": "Gratis",
+          "currency": "IDR"
         },
-        "features": ["Versi: 1.0.0"],
-        "cta": "Download",
-        "url": "#note-banner"
+        "features": ["Versi: 0.1.1"],
+        "cta": "Unduh Sekarang",
+        "url": "https://play.google.com/store/apps/details?id=com.flagodna.amalanku"
       },
       {
-        "title": "Apple - iOS",
+        "title": "🍎 Apple - iOS",
         "description": "Dapatkan Amalanku di App Store untuk iPhone dan iPad. Interface yang dioptimasi khusus untuk ecosystem Apple.",
-        "price": {
-          "amount": "Gratis"
-        },
-        "features": ["Versi: 1.0.0"],
-        "cta": "Download",
-        "url": "#note-banner"
-      },
-      {
-        "title": "Desktop",
-        "description": "Saat ini kami fokus pada pengembangan mobile apps. Untuk versi desktop kami sedang pertimbangkannya.",
         "price": {
           "amount": "Rencana"
         },
         "features": ["Future Plan"],
-        "cta": "Coming Later",
+        "cta": "Coming Soon",
+        "url": "#note-banner"
+      },
+      {
+        "title": "💻 Desktop",
+        "description": "Saat ini kami fokus pada pengembangan mobile apps. Versi desktop sedang dalam pertimbangan.",
+        "price": {
+          "amount": "Rencana"
+        },
+        "features": ["Future Plan"],
+        "cta": "Coming Soon",
         "url": "#note-banner"
       }
     ]

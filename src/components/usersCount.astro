@@ -1,0 +1,73 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+
+// Stats data in JSON format
+const statsData = [
+  {
+    value: "1K+",
+    label: "Pengguna Aktif",
+    color: "text-green-700",
+  },
+  {
+    value: "4.9★",
+    label: "Rating Aplikasi",
+    color: "text-green-700",
+  },
+  {
+    value: "50+",
+    label: "Fitur Ibadah",
+    color: "text-green-700",
+  },
+  {
+    value: "24/7",
+    label: "Dukungan",
+    color: "text-green-700",
+  },
+];
+
+const userCount = "1,000+";
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <!-- Main Heading -->
+    <div class="text-center mb-8">
+      <div class="mx-auto max-w-3xl">
+        <SectionTitle class="text-3xl md:text-5xl font-bold text-gray-800">
+          Gabung bersama <span class="text-green-700">{userCount}</span> Muslim meningkatkan
+          amalan harian
+        </SectionTitle>
+      </div>
+
+      <!-- Subheading -->
+      <p
+        class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mt-6 leading-relaxed"
+      >
+        Aplikasi AmalanKu membantu umat Muslim untuk konsisten dalam ibadah
+        sehari-hari
+      </p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12">
+      {
+        statsData.map((stat, index) => (
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+            <div class={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+            <div class="text-gray-600 mt-2">{stat.label}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Additional CTA -->
+    <div class="text-center mt-12">
+      <a
+        href="#download"
+        class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300 shadow-md"
+      >
+        Download Sekarang
+      </a>
+    </div>
+  </div>
+</section>

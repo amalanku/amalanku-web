@@ -19,11 +19,54 @@ const headerData = {
   ],
 };
 
-//SECTION - SEO TAG
+// App screenshots data
+const screenshots = [
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/beranda.png",
+    alt: "Dashboard AmalanKu",
+    caption: "Dashboard Utama",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/tugas-harian.png",
+    alt: "Tugas Harian",
+    caption: "Tugas Harian",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/baik-buruk.png",
+    alt: "Catatan Kebaikan dan Keburukan",
+    caption: "Catatan Kebaikan & Keburukan",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/konten-islami.png",
+    alt: "Konten Islami",
+    caption: "Konten Islami",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/laporan-bulanan.png",
+    alt: "Laporan Bulanan",
+    caption: "Laporan Bulanan",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/profile-image.png",
+    alt: "Profil Pengguna",
+    caption: "Profil Pengguna",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/pengaturan.png",
+    alt: "Pengaturan Aplikasi",
+    caption: "Pengaturan Aplikasi",
+  },
+  {
+    src: "https://amalanku.github.io/data/APP/image/screenshots/0-1-1/pengaturan-dark.png",
+    alt: "Pengaturan Aplikasi - Mode Gelap",
+    caption: "Pengaturan Aplikasi - Mode Gelap",
+  },
+];
+
 const metaData = {
   title: "Showcase",
   description:
-    "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
+    "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah dan mengelola amalan harian.",
   lang: "id",
   charset: "UTF-8",
   ldJson: {
@@ -31,7 +74,7 @@ const metaData = {
     "@type": "Organization",
     name: "Amalanku",
     description:
-      "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
+      "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah dan mengelola amalan harian.",
     url: "https://www.amalanku.com/",
     logo: "/seo.png",
     contactPoint: {
@@ -47,7 +90,7 @@ const metaData = {
   },
 };
 
-const youtubeVideoId = "aB7EukWfwmE"; //FIXME -  Replace with actual YouTube video ID
+const youtubeVideoId = "aB7EukWfwmE";
 ---
 
 <Layout meta={metaData}>
@@ -73,6 +116,31 @@ const youtubeVideoId = "aB7EukWfwmE"; //FIXME -  Replace with actual YouTube vid
           title="Demonstrasi AmalanKu"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Screenshot Gallery Section -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Tampilan Aplikasi
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          screenshots.map((screenshot, index) => (
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+              <img
+                src={screenshot.src}
+                alt={screenshot.alt}
+                class="w-full h-auto object-cover"
+                loading="lazy"
+              />
+              <div class="p-4 text-center">
+                <p class="text-gray-700 font-medium">{screenshot.caption}</p>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </section>
 
@@ -204,10 +272,9 @@ const youtubeVideoId = "aB7EukWfwmE"; //FIXME -  Replace with actual YouTube vid
 </Layout>
 
 <style>
-  /* Responsive aspect ratio for video */
   .aspect-w-16 {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
   }

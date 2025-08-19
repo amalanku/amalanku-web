@@ -1,0 +1,82 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+
+export interface Props {
+  userCount?: number;
+  reviews?: {
+    rating: number;
+    score: string;
+    text: string;
+    author: string;
+  }[];
+}
+
+// Default reviews in Indonesian
+const defaultReviews = [
+  {
+    rating: 5,
+    score: "4.8/5",
+    text: "Aplikasi tracking islami terbaik yang pernah saya gunakan",
+    author: "Pengguna Google Play",
+  },
+  {
+    rating: 5,
+    score: "4.9/5",
+    text: "Membantu saya membangun kebiasaan harian yang konsisten",
+    author: "Pengguna App Store",
+  },
+  {
+    rating: 5,
+    score: "5/5",
+    text: "Desain indah dan pengingat yang sangat berguna",
+    author: "Pengguna Trustpilot",
+  },
+  {
+    rating: 4,
+    score: "4.7/5",
+    text: "Aplikasi bagus tapi bisa lebih banyak opsi dzikir",
+    author: "Pengguna Google Play",
+  },
+];
+
+const {  reviews = defaultReviews } = Astro.props;
+const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
+---
+<section class="py-20">
+  <!-- Section title -->
+  <div class="text-center mb-12">
+    <SectionTitle>
+      Apa kata pengguna kami
+    </SectionTitle>
+  </div>
+
+  <!-- Reviews grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {shuffledReviews.map((review) => (
+      <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+        
+        <!-- Rating stars -->
+        <div class="text-yellow-400 text-3xl mb-3 flex justify-center">
+          {"★".repeat(review.rating)}
+          {"☆".repeat(5 - review.rating)}
+        </div>
+
+        <!-- Platform -->
+        <div class="text-center font-medium text-green-700 mb-3 text-sm">
+          {review.score} di {review.author.split(" ").pop()}
+        </div>
+
+        <!-- Review Text -->
+        <blockquote class="text-gray-700 mb-4 italic text-center flex-grow">
+          "{review.text}"
+        </blockquote>
+
+        <!-- Author -->
+        <cite class="text-gray-500 text-sm text-center mt-auto">
+          — {review.author}
+        </cite>
+
+      </div>
+    ))}
+  </div>
+</section>

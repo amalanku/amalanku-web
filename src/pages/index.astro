@@ -1,5 +1,7 @@
 ---
+import IslamicAppShowcase from "@/components/IslamicAppShowcase.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
+import UsersCount from "@/components/usersCount.astro";
 import Layout from "@/layouts/Layout.astro";
 import Banner from "@/sections/Banner.astro";
 import Download from "@/sections/Download.astro";
@@ -20,7 +22,7 @@ const data = await getLandingData();
     <div class="w-full bg-primary">
       <Hero data={data.heroData} />
     </div>
-    <div class="w-full bg-primary-100">
+    <div class="w-full bg-gradient-to-r from-blue-100 to-green-200">
       <div class="mx-auto w-3/4">
         <Services data={data.servicesData} />
       </div>
@@ -28,24 +30,37 @@ const data = await getLandingData();
     <div class="w-3/4">
       <Features data={data.FeatureData} />
     </div>
-    <div class="w-full bg-primary-100">
+
+    <div class="w-full bg-gradient-to-r from-blue-100 to-green-200">
       <div class="mx-auto w-3/4">
         <WhyWidget data={data.whyData} />
       </div>
     </div>
+
+    <div class="w-3/4">
+      <UsersCount />
+    </div>
+
+    <div class="w-full bg-gradient-to-r from-blue-100 to-green-200">
+      <div class="mx-auto w-3/4">
+        <IslamicAppShowcase />
+      </div>
+    </div>
+
     <div class="w-3/4">
       <Download data={data.downloadData} />
     </div>
+
     <Banner
       id="note-banner"
-      type="error"
-      title="AmalanKu sedang dibangun bersama komunitas"
-      description="Bergabunglah dengan para developer dan kontributor lainnya untuk mewujudkan aplikasi amalan Islam terbaik. Setiap kontribusi Anda sangat berharga!"
+      type="success"
+      title="AmalanKu adalah aplikasi untuk membimbing kebaikan sehari-hari"
+      description="Bergabunglah dengan komunitas developer dan kontributor untuk menciptakan aplikasi amalan Islami terbaik. Setiap kontribusi Anda membuat perbedaan!"
       cta="Gabung Sekarang"
       url="/kontribusi"
       newPage={false}
     />
     <Footer data={data.footerData} />
-    <ScrollToTop />
   </main>
 </Layout>
+<ScrollToTop />
