@@ -1,0 +1,143 @@
+---
+
+import SectionTitle from "@/components/SectionTitle.astro";
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Pertanyaan Umum", 
+  description = "Temukan jawaban untuk pertanyaan yang sering diajukan tentang AmalanKu"
+} = Astro.props;
+
+// FAQ Data - All in Indonesian
+const faqData: FAQItem[] = [
+  {
+    question: "Apa itu AmalanKu?",
+    answer: "AmalanKu adalah aplikasi mobile untuk membantu umat Muslim lebih konsisten dalam beribadah sehari-hari. Aplikasi ini melacak tugas harian seperti shalat, dzikir, puasa, serta catatan amalan kebaikan dan keburukan.",
+    category: "Umum"
+  },
+  {
+    question: "Apakah perlu mendaftar untuk menggunakan AmalanKu?",
+    answer: "Tidak perlu. AmalanKu bisa langsung digunakan tanpa akun. Cukup download, buka aplikasi, dan mulai gunakan. Anda juga dapat mengatur nama dan foto profil secara lokal.",
+    category: "Akun"
+  },
+  {
+    question: "Apakah AmalanKu gratis?",
+    answer: "Ya, AmalanKu sepenuhnya gratis dengan fitur lengkap. Kami berkomitmen untuk membantu umat Muslim tanpa biaya.",
+    category: "Umum"
+  },
+  {
+    question: "Fitur apa saja yang tersedia?",
+    answer: "Fitur utama meliputi:\n- Daily task Muslim dengan 3 level: Pemula, Menengah, dan Mahir\n- Catatan amal kebaikan dan keburukan\n- Kalender bulanan Hijriyah\n- Ringkasan detail ibadah bulanan\n- Ringkasan kekhusyukan shalat\n- Ekspor data bulanan ke PDF\n- App lock dengan pola atau PIN (opsional di menu Pengaturan)",
+    category: "Fitur"
+  },
+  {
+    question: "Apakah data saya aman?",
+    answer: "Data Anda disimpan secara lokal di perangkat, bukan di server. Aplikasi juga menyediakan fitur app lock (pola atau PIN) untuk melindungi data Anda.",
+    category: "Keamanan"
+  },
+  {
+    question: "Apakah aplikasi membutuhkan koneksi internet?",
+    answer: "Tidak, semua data dan aktivitas Anda tersimpan secara lokal. Karena itu, AmalanKu dapat digunakan sepenuhnya secara offline tanpa koneksi internet.",
+    category: "Keamanan"
+  },
+  {
+    question: "Apakah tersedia untuk iOS dan Android?",
+    answer: "Saat ini AmalanKu tersedia untuk Android. Versi iOS sedang dalam tahap persiapan dan akan dirilis setelah pengujian dengan perangkat Mac. Aplikasi untuk PC atau desktop belum direncanakan.",
+    category: "Unduhan"
+  },
+  {
+    question: "Apakah ada fitur offline?",
+    answer: "Ya, semua fitur AmalanKu dapat digunakan tanpa internet. Data sepenuhnya disimpan di perangkat Anda.",
+    category: "Fitur"
+  },
+  {
+    question: "Bagaimana cara ekspor data bulanan?",
+    answer: "Anda dapat mengekspor catatan bulanan ke dalam format PDF melalui menu ringkasan bulanan. File PDF bisa disimpan atau dibagikan sesuai kebutuhan.",
+    category: "Ekspor Data"
+  }
+];
+
+
+
+// Group by category for better organization
+const categories = Array.from(new Set(faqData.map(faq => faq.category || 'Umum')));
+---
+
+<div class="py-20 px-4">
+  <!-- Header -->
+  <div class="text-center mb-12">  
+  <SectionTitle>
+    {title}
+  </SectionTitle>
+    <p class="pt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+      {description}
+    </p>
+  </div>
+
+  <!-- FAQ Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {categories.map((category) => (
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <!-- Category Header -->
+        <h3 class="text-xl font-semibold text-green-700 mb-4 pb-2 border-b border-gray-200">
+          {category}
+        </h3>
+        
+        <!-- FAQ Items for this category -->
+        <div class="space-y-4">
+          {faqData
+            .filter(faq => (faq.category || 'Umum') === category)
+            .map((faq, index) => (
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  {faq.question}
+                </h4>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Support CTA -->
+  <div class="text-center mt-12 p-8 bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl border border-green-200">
+    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+      </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900 mb-2">
+      Masih punya pertanyaan?
+    </h3>
+    <p class="text-gray-600 mb-4 max-w-md mx-auto">
+      Tim support kami siap membantu Anda kapan saja
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-3">
+      <a
+        href="#download"
+        class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-md"
+      >
+        Hubungi Support
+      </a>
+      <a
+        href="/docs"
+        class="inline-block border border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200"
+      >
+        Baca Dokumentasi
+      </a>
+    </div>
+  </div>
+</div>

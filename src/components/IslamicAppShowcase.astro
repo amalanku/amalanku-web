@@ -15,30 +15,53 @@ export interface Props {
 const defaultReviews = [
   {
     rating: 5,
-    score: "4.8/5",
-    text: "Aplikasi tracking islami terbaik yang pernah saya gunakan",
-    author: "Pengguna Google Play",
+    score: "5/5",
+    text: "Aplikasi tracking islami terbaik! Fitur daily task dengan level pemula sangat membantu saya yang baru belajar istiqomah. Data tersimpan lokal jadi privasi terjaga.",
+    author: "Ahmad S. - Jakarta",
   },
   {
     rating: 5,
-    score: "4.9/5",
-    text: "Membantu saya membangun kebiasaan harian yang konsisten",
-    author: "Pengguna App Store",
+    score: "5/5", 
+    text: "Sangat membantu untuk muhasabah harian. Fitur daily deed untuk catat kebaikan dan keburukan membuat saya lebih aware dengan perbuatan sehari-hari.",
+    author: "Siti R. - Bandung",
   },
   {
     rating: 5,
     score: "5/5",
-    text: "Desain indah dan pengingat yang sangat berguna",
-    author: "Pengguna Trustpilot",
+    text: "Love the app lock feature! Sebagai yang sering pinjamkan HP, fitur kunci dengan pattern sangat berguna. Export PDF juga keren untuk dokumentasi.",
+    author: "Muhammad F. - Surabaya",
   },
   {
     rating: 4,
-    score: "4.7/5",
-    text: "Aplikasi bagus tapi bisa lebih banyak opsi dzikir",
-    author: "Pengguna Google Play",
+    score: "4/5",
+    text: "Aplikasi bagus untuk tracking amalan. Kalender Hijriyah sangat membantu. Tapi mungkin bisa ditambah lebih banyak variasi dzikir dan doa.",
+    author: "Fatimah A. - Yogyakarta",
   },
+  {
+    rating: 5,
+    score: "5/5",
+    text: "Interface simple dan mudah digunakan. Paling suka fitur summary kekusyuan shalat, jadi bisa evaluasi kualitas ibadah. Offline feature juga mantap!",
+    author: "Abdul M. - Medan",
+  },
+  {
+    rating: 5,
+    score: "5/5",
+    text: "Tanpa registrasi langsung bisa pakai, sangat praktis! Level mahir di daily task cukup challenging. Remindernya juga tidak mengganggu aktivitas.",
+    author: "Khadijah L. - Makassar",
+  },
+  {
+    rating: 4,
+    score: "4/5", 
+    text: "Aplikasi lokal Indonesia yang berkualitas. Fitur tracking lengkap dan data privat. Semoga segera ada versi iOS ya, pengen pakai di iPhone.",
+    author: "Usman H. - Palembang",
+  },
+  {
+    rating: 5,
+    score: "5/5",
+    text: "Cocok banget buat yang ingin membangun habit islami. Progress tracking visual memotivasi untuk konsisten. Export monthly report juga berguna.",
+    author: "Aisyah K. - Semarang",
+  }
 ];
-
 const {  reviews = defaultReviews } = Astro.props;
 const shuffledReviews = [...reviews].sort(() => Math.random() - 0.5);
 ---
