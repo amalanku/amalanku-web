@@ -1,13 +1,13 @@
 {
   "meta": {
-    "title": "Amalanku - Aplikasi Amalan Harian Muslim",
-    "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
+    "title": "AmalanKu - Aplikasi Amalan Harian Muslim",
+    "description": "AmalanKu adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
     "lang": "id",
     "charset": "UTF-8",
     "ldJson": {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "name": "Amalanku",
+      "name": "AmalanKu",
       "description": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
       "url": "https://www.amalanku.com/",
       "logo": "/seo.png",
@@ -24,7 +24,7 @@
     }
   },
   "headerData": {
-    "logo": "Amalanku 📿",
+    "logo": "AmalanKu 📿",
     "links": [
       { "label": "Home", "href": "/" },
       { "label": "Showcase", "href": "/showcase" },
@@ -38,12 +38,12 @@
   },
   "heroData": {
     "title": "Tingkatkan Keistiqomahan Dengan:",
-    "subTitle": "Amalanku adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
+    "subTitle": "AmalanKu adalah aplikasi mobile yang dirancang khusus untuk membantu umat Islam bermuhasabah, istiqomah  dan mengelola amalan harian.",
     "primaryCta": "Download Android",
     "primaryUrl": "#download",
     "secondaryCta": "Download iOS",
     "secondaryUrl": "#download",
-    "highlightedTitle": "Amalanku"
+    "highlightedTitle": "AmalanKu"
   },
   "servicesData": {
     "title": "Tujuan Utama - Aplikasi AmalanKu",

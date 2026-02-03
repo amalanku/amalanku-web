@@ -1,0 +1,139 @@
+---
+interface Props {
+  /**
+   * YouTube video ID or full URL
+   * Examples:
+   * - ID: "dQw4w9WgXcQ"
+   * - URL: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+   * - Short URL: "https://youtu.be/dQw4w9WgXcQ"
+   * - Embed URL: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+   */
+  video: string;
+  /**
+   * Aspect ratio class (default: "aspect-video")
+   */
+  aspectRatio?: string;
+  /**
+   * Iframe title for accessibility (default: "YouTube video player")
+   */
+  title?: string;
+  /**
+   * Iframe width (default: "100%")
+   */
+  width?: string;
+  /**
+   * Iframe height (default: "100%")
+   */
+  height?: string;
+  /**
+   * Enable autoplay (default: false)
+   */
+  autoplay?: boolean;
+  /**
+   * Enable controls (default: true)
+   */
+  controls?: boolean;
+  /**
+   * Enable fullscreen (default: true)
+   */
+  allowFullScreen?: boolean;
+  /**
+   * Additional CSS classes
+   */
+  class?: string;
+  classIframe?: string;
+}
+
+const {
+  video,
+  aspectRatio = "aspect-video",
+  title = "YouTube video player",
+  width = "100%",
+  height = "100%",
+  autoplay = false,
+  controls = true,
+  allowFullScreen = true,
+  class: className = "",
+  classIframe: classNameIframe = "",
+} = Astro.props;
+
+// Extract YouTube ID from various URL formats or use as-is if already an ID
+const extractYouTubeId = (input: string): string => {
+  // If it's already just an ID (no URL patterns)
+  if (
+    !input.includes("youtube.com") &&
+    !input.includes("youtu.be") &&
+    !input.includes("/")
+  ) {
+    return input;
+  }
+
+  // Handle youtu.be short URLs
+  if (input.includes("youtu.be/")) {
+    const id = input.split("youtu.be/")[1]?.split(/[?&#]/)[0];
+    return id || input;
+  }
+
+  // Handle youtube.com URLs
+  if (input.includes("youtube.com")) {
+    // Handle embed URLs
+    if (input.includes("/embed/")) {
+      const id = input.split("/embed/")[1]?.split(/[?&#]/)[0];
+      return id || input;
+    }
+
+    // Handle watch URLs
+    if (input.includes("v=")) {
+      const id = input.split("v=")[1]?.split(/[&?]/)[0];
+      return id || input;
+    }
+
+    // Handle youtu.be URLs in youtube.com
+    if (input.includes("youtu.be")) {
+      const id = input.split("youtu.be/")[1]?.split(/[?&#]/)[0];
+      return id || input;
+    }
+  }
+
+  return input; // Fallback to original input
+};
+
+const videoId = extractYouTubeId(video);
+const embedUrl = `https://www.youtube.com/embed/${videoId}${autoplay ? "?autoplay=1" : ""}`;
+---
+
+<div class={`${aspectRatio} ${className}`}>
+  <iframe
+    src={embedUrl}
+    title={title}
+    width={width}
+    height={height}
+    allow={[
+      "accelerometer",
+      autoplay ? "autoplay" : "",
+      "clipboard-write",
+      "encrypted-media",
+      "gyroscope",
+      "picture-in-picture",
+      allowFullScreen ? "fullscreen" : "",
+    ]
+      .filter(Boolean)
+      .join("; ")}
+    allowfullscreen={allowFullScreen}
+    loading="lazy"
+    class=`w-full h-full border-0 ${classNameIframe}`
+    {...controls ? {} : { "data-nocontrols": "true" }}></iframe>
+</div>
+
+<style>
+  iframe {
+    background-color: #000;
+  }
+
+  /* Responsive styling */
+  @media (max-width: 640px) {
+    .aspect-video {
+      aspect-ratio: 16/9;
+    }
+  }
+</style>
