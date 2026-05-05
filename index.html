@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
     />
     <meta
       property="og:image"
-      content="https://github.com/amalanku/amalanku-web/assets/images/seo.jpg"
+      content="https://amalanku.github.io/assets/images/seo.jpg"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,10 +56,10 @@
           },
           {
             "@type": "SoftwareApplication",
-            "@id": "https://github.com/amalanku/amalanku.github.io#app",
+            "@id": "https://amalanku.github.io/#app",
             "name": "AmalanKu",
-            "url": "https://github.com/amalanku/amalanku.github.io/",
-            "image": "https://github.com/amalanku/amalanku-web/assets/icon/amalanku.png",
+            "url": "https://amalanku.github.io/",
+            "image": "https://amalanku.github.io/assets/images/seo.jpg",
             "operatingSystem": "Android",
             "applicationCategory": "LifestyleApplication",
             "description": "Aplikasi pencatat amalan harian untuk Muslim. Catat shalat, dzikir, puasa, sedekah, dan baca Al-Quran. Offline, privat, data 100% di perangkat Anda.",
@@ -903,12 +903,12 @@
             }
           });
         },
-        { threshold: 0.1 },
+        { threshold: 0.1 }
       );
 
       document
         .querySelectorAll(
-          ".feature-card, .level-card, .testimonial-card, .privacy-item",
+          ".feature-card, .level-card, .testimonial-card, .privacy-item"
         )
         .forEach((el) => {
           observer.observe(el);
