@@ -1,0 +1,20 @@
+{
+  "redirects": [
+    {
+      "source": "/team",
+      "destination": "/docs/team.html",
+      "permanent": true
+    },
+    {
+      "source": "/kontribusi",
+      "destination": "/docs/kontribusi.html",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
